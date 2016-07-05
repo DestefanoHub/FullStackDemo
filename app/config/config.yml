@@ -32,10 +32,10 @@ framework:
     http_method_override: true
     assets: ~
 
-# Twig Configuration
-twig:
-    debug:            "%kernel.debug%"
-    strict_variables: "%kernel.debug%"
+## Twig Configuration
+#twig:
+#    debug:            "%kernel.debug%"
+#    strict_variables: "%kernel.debug%"
 
 # Doctrine Configuration
 doctrine:
