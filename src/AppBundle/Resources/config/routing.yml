@@ -1,0 +1,4 @@
+get_token:
+    path: /getToken
+    defaults: { _controller: AppBundle:Token:getToken }
+    methods:  [POST]
