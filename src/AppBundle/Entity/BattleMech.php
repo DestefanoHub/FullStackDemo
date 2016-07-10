@@ -121,6 +121,7 @@ class BattleMech
      *      max=20,
      *      maxMessage="A Battlemech's technology base must be less than {{ limit }} characters."
      * )
+     *
      * @JMS\Expose()
      */
     protected $techBase;
@@ -180,7 +181,7 @@ class BattleMech
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\MountedWeapons", cascade={"all"})
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\MountedWeapons", mappedBy="battlemech", cascade={"all"})
      *
      * @JMS\Expose()
      */
@@ -188,7 +189,7 @@ class BattleMech
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\MountedEquipment", cascade={"all"})
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\MountedEquipment", mappedBy="battlemech", cascade={"all"})
      *
      * @JMS\Expose()
      */
@@ -230,15 +231,9 @@ class BattleMech
         return $this->tonnage;
     }
 
-    public function setWeight($weight)
+    public function setWeight($tonnage)
     {
-        //Weight must be in 5 ton increments
-        if(($weight % 5) != 0){
-            return "The weight must be a multiple of 5 tons.";
-        } else{
-            $this->tonnage = $weight;
-            return true;
-        }
+       $this->tonnage = $tonnage;
     }
 
     public function getEngine()
@@ -268,14 +263,7 @@ class BattleMech
 
     public function setTechBase($techBase)
     {
-        $caseTechBAse = strtoupper($techBase);
-        //Only allow proper technology bases
-        if($caseTechBAse != "INNER SPHERE" || $caseTechBAse != "CLAN"){
-            return "The technology base must either be INNER SPHERE or CLAN.";
-        } else{
-            $this->techBase = $caseTechBAse;
-            return true;
-        }
+        $this->techBase = $techBase;
     }
 
     public function getStructureType()
@@ -285,14 +273,7 @@ class BattleMech
 
     public function setStructureType($structure)
     {
-        $caseStructure = strtoupper($structure);
-        //Only allow proper structure types
-        if($caseStructure != "ENDO-STEEL" || $caseStructure != "STANDARD"){
-            return "The internal structure must either be a STANDARD or ENDO-STEEL.";
-        } else{
-            $this->internalStructureType = $caseStructure;
-            return true;
-        }
+        $this->internalStructureType = $structure;
     }
 
     public function getArmorType()
@@ -302,14 +283,7 @@ class BattleMech
 
     public function setArmorType($armor)
     {
-        $caseArmor = strtoupper($armor);
-        //Only allow proper armor types
-        if($caseArmor != "FERRO-FIBROUS" || $caseArmor != "STANDARD"){
-            return "The armor must either be a STANDARD or FERRO-FIBROUS.";
-        } else{
-            $this->armorType = $caseArmor;
-            return true;
-        }
+        $this->armorType = $armor;
     }
 
     public function getHeatSinkType()
@@ -319,14 +293,7 @@ class BattleMech
 
     public function setHeatSinkType($heatSink)
     {
-        $caseHeatSink = strtoupper($heatSink);
-        //Only allow proper heatsink types
-        if($caseHeatSink != "DOUBLE" || $caseHeatSink != "SINGLE"){
-            return "The heat sinks must either be a SINGLE or DOUBLE.";
-        } else{
-            $this->heatSinkType = $caseHeatSink;
-            return true;
-        }
+        $this->heatSinkType = $heatSink;
     }
 
     public function getImage()
