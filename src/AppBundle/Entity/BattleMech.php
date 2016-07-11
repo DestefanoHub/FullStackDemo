@@ -192,7 +192,7 @@ class BattleMech
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\MountedWeapons", mappedBy="battlemech", cascade={"all"})
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\MountedWeapons", mappedBy="battlemech", orphanRemoval=true, cascade={"all"})
      *
      * @JMS\Expose()
      */
@@ -200,7 +200,7 @@ class BattleMech
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\MountedEquipment", mappedBy="battlemech", cascade={"all"})
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\MountedEquipment", mappedBy="battlemech", orphanRemoval=true, cascade={"all"})
      *
      * @JMS\Expose()
      */
@@ -325,5 +325,59 @@ class BattleMech
     public function setImage($image)
     {
         $this->image = $image;
+    }
+
+    public function getWeapons()
+    {
+        return $this->weapons;
+    }
+
+    public function addWeapon(MountedWeapons $weapon)
+    {
+        if($this->weapons->contains($weapon)){
+            return false;
+        } else{
+            $this->weapons->add($weapon);
+            $weapon->setBattleMech($this);
+            return true;
+        }
+    }
+
+    public function removeWeapon(MountedWeapons $weapon)
+    {
+        if($this->weapons->contains($weapon)){
+            $this->weapons->removeElement($weapon);
+            $weapon->setBattleMech(null);
+            return true;
+        } else{
+            return false;
+        }
+    }
+
+    public function getEquipment()
+    {
+        return $this->equipment;
+    }
+
+    public function addEquipment(MountedEquipment $equipment)
+    {
+        if($this->weapons->contains($equipment)){
+            return false;
+        } else{
+            $this->equipment->add($equipment);
+            $equipment->setBattleMech($this);
+            return true;
+        }
+    }
+
+    public function removeEquipment(MountedEquipment $equipment)
+    {
+        if($this->equipment->contains($equipment)){
+            $this->equipment->removeElement($equipment);
+            $equipment->setBattleMech(null);
+            return true;
+        } else{
+            return false;
+        }
     }
 }

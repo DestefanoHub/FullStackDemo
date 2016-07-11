@@ -39,6 +39,8 @@ class User extends BaseUser
     /**
      * @var ArrayCollection
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Order", mappedBy="user", cascade={"all"})
+     *
+     * @JMS\Expose()
      */
     protected $orders;
 
@@ -130,5 +132,10 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getOrders()
+    {
+        return $this->orders;
     }
 }

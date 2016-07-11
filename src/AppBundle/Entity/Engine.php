@@ -92,14 +92,7 @@ class Engine
 
     public function setTechBase($techBase)
     {
-        $caseTechBAse = strtoupper($techBase);
-        //Only allow proper technology bases
-        if($caseTechBAse != "INNER SPHERE" || $caseTechBAse != "CLAN"){
-            return "The technology base must either be INNER SPHERE or CLAN.";
-        } else{
-            $this->techBase = $caseTechBAse;
-            return true;
-        }
+        $this->techBase = $techBase;
     }
 
     public function getEngineType()
@@ -109,14 +102,7 @@ class Engine
 
     public function setEngineType($engine)
     {
-        $caseEngine = strtoupper($engine);
-        //Only allow proper engine types
-        if($caseEngine != "STANDARD" || $caseEngine != "XL"){
-            return "The engine must either be a STANDARD or XL engine.";
-        } else{
-            $this->engineType = $caseEngine;
-            return true;
-        }
+        $this->engineType = $engine;
     }
 
     public function getEngineRating()
@@ -126,12 +112,6 @@ class Engine
 
     public function setEngineRating($rating)
     {
-        //Engine rating must be in increments of 5
-        if(($rating % 5) != 0){
-            return "The engine rating must be in increments of 5.";
-        } else{
-            $this->engineRating = $rating;
-            return true;
-        }
+        $this->engineRating = $rating;
     }
 }
