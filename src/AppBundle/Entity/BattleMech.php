@@ -172,6 +172,17 @@ class BattleMech
     protected $heatSinkType;
 
     /**
+     * @var integer
+     * @ORM\Column(name="cost", type="integer")
+     * @Assert\NotBlank(
+     *      message="A BattleMech's cost cannot be blank."
+     * )
+     *
+     * @JMS\Expose()
+     */
+    protected $cost;
+
+    /**
      * @var string
      * @ORM\Column(name="image", type="string", nullable=true)
      *
@@ -294,6 +305,16 @@ class BattleMech
     public function setHeatSinkType($heatSink)
     {
         $this->heatSinkType = $heatSink;
+    }
+
+    public function getCost()
+    {
+        return $this->cost;
+    }
+
+    public function setCost($cost)
+    {
+        $this->cost = $cost;
     }
 
     public function getImage()

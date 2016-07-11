@@ -8,6 +8,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -36,6 +37,12 @@ class User extends BaseUser
     protected $id;
 
     /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Order", mappedBy="user", cascade={"all"})
+     */
+    protected $orders;
+
+    /**
      * @var \DateTime
      * @ORM\Column(name="created_at", type="datetime")
      *
@@ -62,7 +69,7 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+        $this->orders = new ArrayCollection();
     }
 
     /**

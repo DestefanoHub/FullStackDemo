@@ -32,14 +32,14 @@ class MountedWeapons
     protected $id;
 
     /**
-     * @var integer
+     * @var BattleMech
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\BattleMech", inversedBy="weapons", cascade={"all"})
      * @ORM\JoinColumn(name="battlemech_id", referencedColumnName="id", nullable=false)
      */
     protected $battlemech;
 
     /**
-     * @var integer
+     * @var Weapon
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Weapon")
      * @ORM\JoinColumn(name="weapon_id", referencedColumnName="id", nullable=false)
      */
