@@ -1,0 +1,21 @@
+AppBundle\Entity\User:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [email]
+            message: "Email already exists, please use another."
+            groups: [registration, profile]
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [username]
+            message: "Username already exists, plases use another."
+            groups: [registration, profile]
+    properties:
+        username:
+            - NotBlank: { groups: [registration], message: "Your username should not be blank." }
+            - Length: { groups: [registration], min: 5, minMessage: "Your user name must be at least {{ limit }} characters in length.", max: 40, maxMessage: "Your user name must be no more than {{ limit }} characters in length." }
+        email:
+            - Email: { groups: [registration], message: "The email {{ value }} is not valid.", checkMX: true }
+            - NotBlank: { groups: [registration], message: "Your email should not be blank." }
+            - Length: { groups: [registration], min: 7, minMessage: "Your email must be at least {{ limit }} characters in length.", max: 60, maxMessage: "Your email must be no more than {{ limit }} characters in length." }
+        plainPassword:
+            - NotBlank: { groups: [registration, profile], message: "Your password should not be blank." }
+            - Length: { groups: [registration, profile], min: 8, minMessage: "Your password must be at least {{ limit }} characters in length.", max: 20, maxMessage: "Your password must be no more than {{ limit }} characters in length." }

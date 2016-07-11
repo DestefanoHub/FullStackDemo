@@ -3,6 +3,14 @@ fos_user:
     firewall_name: api
     user_class: AppBundle\Entity\User
 
+    registration:
+        form:
+            type: UserBundle\Form\Type\RegistrationFormType
+
+    profile:
+        form:
+            type: UserBundle\Form\Type\ProfileFormType
+
 fos_rest:
     #disable_csrf_role: ROLE_API
     param_fetcher_listener: true

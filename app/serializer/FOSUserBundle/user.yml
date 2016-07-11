@@ -1,0 +1,27 @@
+# Vendor\MyBundle\Resources\config\serializer\Model.ClassName.yml
+FOS\UserBundle\Model\User:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+            type: int
+            since_version: 1.0
+            groups: [default, user, user-stub]
+
+        username:
+            expose: true
+            type: string
+            since_version: 1.0
+            groups: [default, user, user-stub]
+
+        email:
+            expose: true
+            type: string
+            since_version: 1.0
+            groups: [user]
+
+        roles:
+            expose: true
+            type: array
+            since_version: 1.0
+            groups: [user]
