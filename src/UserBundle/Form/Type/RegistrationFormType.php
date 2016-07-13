@@ -3,21 +3,25 @@
  * Created by PhpStorm.
  * User: andrew
  * Date: 7/11/16
- * Time: 6:53 PM
+ * Time: 6:52 PM
  */
 
-namespace UserBundle\Controller\Form\Type;
+namespace UserBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ProfileFormType extends AbstractType
+class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username', 'text');
+            ->add('username', TextType::class)
+            ->add('email', EmailType::class)
+            ->add('plainPassword', TextType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)
@@ -29,6 +33,6 @@ class ProfileFormType extends AbstractType
 
     public function getName()
     {
-        return "profile";
+        return "register";
     }
 }
