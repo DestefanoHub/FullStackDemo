@@ -31,7 +31,7 @@ class RegistrationFormType extends AbstractType
         ));
     }
 
-    public function getName()
+    public function getBlockPrefix()
     {
         return "register";
     }

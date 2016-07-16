@@ -21,6 +21,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use FOS\UserBundle\Model\UserInterface;
 use UserBundle\Form\Type\RegistrationFormType;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 /**
  * Controller managing the registration
@@ -30,6 +31,20 @@ use UserBundle\Form\Type\RegistrationFormType;
  */
 class RegistrationController extends FOSRestController
 {
+    /**
+     * Registers a new user with the system
+     *
+     * @param Request $request
+     * @return Response
+     *
+     * @ApiDoc(
+     *     resource = true,
+     *      statusCodes = {
+     *          201 = "Created",
+     *          400 = "Invalid data"
+     *     }
+     * )
+     */
     public function registerAction(Request $request)
     {
         /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
@@ -47,7 +62,7 @@ class RegistrationController extends FOSRestController
         $response = new Response();
         $response->headers->set('Content-Type', 'application/json');
         $serializer = $this->container->get('jms_serializer');
-        
+
         $form->handleRequest($request);
         if ($form->isValid()) {
             $user->addRole("USER");

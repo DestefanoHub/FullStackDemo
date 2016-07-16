@@ -7,3 +7,7 @@ register:
     path: /register
     defaults: { _controller: UserBundle:Registration:register }
     methods: [POST]
+
+AppBundleProfile:
+    prefix: /profile
+    resource: "@AppBundle/Resources/config/routing/profile.yml"

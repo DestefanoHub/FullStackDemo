@@ -1,0 +1,9 @@
+get_profile:
+    path: /
+    defaults: { _controller: UserBundle:Profile:show }
+    methods: [GET]
+
+edit_profile:
+    path: /
+    defaults: { _controller: UserBundle:Profile:edit }
+    methods: [PUT]
