@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="41a9951a-6ef8-4088-ae1d-39c81066eacf" name="Default" comment="Added:&#10;- registration controller register action.&#10;- form is not binding the data.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/config/routing/profile.yml" />
+    <list default="true" id="41a9951a-6ef8-4088-ae1d-39c81066eacf" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/fosbundles.yml" afterPath="$PROJECT_DIR$/app/config/fosbundles.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserBundle/Controller/ProfileController.php" afterPath="$PROJECT_DIR$/src/UserBundle/Controller/ProfileController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserBundle/Controller/RegistrationController.php" afterPath="$PROJECT_DIR$/src/UserBundle/Controller/RegistrationController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserBundle/Form/Type/ProfileFormType.php" afterPath="$PROJECT_DIR$/src/UserBundle/Form/Type/ProfileFormType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserBundle/Form/Type/RegistrationFormType.php" afterPath="$PROJECT_DIR$/src/UserBundle/Form/Type/RegistrationFormType.php" />
     </list>
     <ignored path="FullStackDemo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,80 +17,12 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="DatabaseView">
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_TABLE_DETAILS" value="true" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="FullStackDemo" />
   </component>
   <component name="FileEditorManager">
     <leaf />
-  </component>
-  <component name="FrameworkCommandLineHistory">
-    <commandsHistory>
-      <command text="composer.phar install" />
-    </commandsHistory>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/app/config/lexikjwt.yml" />
-        <option value="$PROJECT_DIR$/app/config/parameters.yml.dist" />
-        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
-        <option value="$PROJECT_DIR$/app/config/security.yml" />
-        <option value="$PROJECT_DIR$/app/config/jmsserializer.yml" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Repositories/UserRepo.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/TokenController.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Battlemech.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Repositories/BattleMechRepo.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Repositories/EngineRepo.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Repositories/EquipmentRepo.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Repositories/WeaponRepo.php" />
-        <option value="$PROJECT_DIR$/web/app_dev.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Weapon.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Equipment.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Repositories/OrderRepo.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/MountedEquipment.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/MountedWeapons.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/BattleMech.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Engine.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Order.php" />
-        <option value="$PROJECT_DIR$/src/UserBundle/UserBundle.php" />
-        <option value="$PROJECT_DIR$/src/UserBundle/Controller/Form/Type/RegistrationFormType.php" />
-        <option value="$PROJECT_DIR$/src/UserBundle/Controller/Form/Type/ProfileFormType.php" />
-        <option value="$PROJECT_DIR$/app/config/services.yml" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/config/validation.yml" />
-        <option value="$PROJECT_DIR$/app/serializer/FOSUserBundle/user.yml" />
-        <option value="dbtable:/8e2fd0d/b7cf8952-80a2-4d21-a083-4c8a6f366dfe/isms.isms_users" />
-        <option value="$PROJECT_DIR$/app/config/fosbundles.yml" />
-        <option value="$PROJECT_DIR$/src/UserBundle/Form/Type/RegistrationFormType.php" />
-        <option value="$PROJECT_DIR$/app/AppKernel.php" />
-        <option value="$PROJECT_DIR$/app/config/routing.yml" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
-        <option value="$PROJECT_DIR$/src/UserBundle/Controller/RegistrationController.php" />
-        <option value="$PROJECT_DIR$/src/UserBundle/Form/Type/ProfileFormType.php" />
-        <option value="$PROJECT_DIR$/src/UserBundle/Controller/ProfileController.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/config/profile.yml" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/config/routing/profile.yml" />
-      </list>
-    </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -111,12 +31,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpServers">
-    <servers>
-      <server host="localhost" id="d96e6037-02d5-46d5-b5f5-ee1add8155c3" name="localhost" />
-      <server host="isms.example.com" id="9a504cb6-c2e3-458c-a493-737b2301d7fd" name="isms.example.com" />
-    </servers>
+    <servers />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-1" />
     <option name="y" value="25" />
@@ -204,307 +120,24 @@
       </pane>
     </panes>
   </component>
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../geotagger3" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="FullScreen" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="recentsLimit" value="5" />
-    <property name="restartRequiresConfirmation" value="true" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/AppBundle/Resources/config/routing" />
-      <recent name="$PROJECT_DIR$/src/UserBundle" />
-      <recent name="$PROJECT_DIR$/src/AppBundle/Resources/config" />
-    </key>
-  </component>
-  <component name="RestClientSettings">
-    <option name="REQUEST_HISTORY">
-      <list>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://isms.example.com" />
-          <option name="urlPath" value="/app_dev.php/api/register" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Content-Type" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="{     &quot;registration_form&quot;:{         &quot;username&quot;: &quot;newUser&quot;,         &quot;email&quot;: &quot;newUser@gmail.com&quot;,         &quot;plainPassword&quot;: &quot;password&quot;     } }" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://isms.example.com" />
-          <option name="urlPath" value="/app_dev.php" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="*/*" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parameters">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="username" />
-                <option name="value" value="andrew" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="password" />
-                <option name="value" value="password" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="PHP Remote Debug.Xdebug">
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
-      <method />
-    </configuration>
-    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
-      <BehatRunner />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <pass-parent-envs>true</pass-parent-envs>
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run-script" />
-      <scripts />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory />
-      <pass-parent-env>true</pass-parent-env>
-      <envs />
-      <ui />
-      <extra-mocha-options />
-      <test-kind>DIRECTORY</test-kind>
-      <test-directory />
-      <recursive>false</recursive>
-      <method />
-    </configuration>
-    <configuration default="false" name="Xdebug" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" server_name="localhost" session_id="PHPSTORM">
-      <method />
-    </configuration>
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="PHP Remote Debug.Xdebug" />
-    </list>
-  </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="41a9951a-6ef8-4088-ae1d-39c81066eacf" name="Default" comment="" />
-      <created>1467747258856</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1467747258856</updated>
-      <workItem from="1468368621685" duration="3354000" />
-      <workItem from="1468446472277" duration="3024000" />
-      <workItem from="1468450583664" duration="3663000" />
-      <workItem from="1468607040300" duration="200000" />
-      <workItem from="1468696235030" duration="3513000" />
-    </task>
-    <task id="LOCAL-00001" summary="Added:&#10;- installed composer">
-      <created>1467748407670</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1467748407670</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Added:&#10;- installed composer">
-      <created>1467748588596</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1467748588596</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Added:&#10;- installed composer">
-      <created>1467748849265</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1467748849265</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Added:&#10;- installed composer">
-      <created>1467748905895</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1467748905895</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Added:&#10;- installed composer">
-      <created>1467748918609</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1467748918609</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Added:&#10;- installed composer">
-      <created>1467749111570</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1467749111570</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Added:&#10;- installed composer">
-      <created>1467749122906</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1467749122906</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Added:&#10;- installed composer">
-      <created>1467751106347</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1467751106347</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Added:&#10;- added necessary bundles.&#10;- added user class.">
-      <created>1467757275951</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1467757275951</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Added:&#10;- provided some material to the user class.&#10;- stared work on battlemechs.">
-      <created>1467907296133</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1467907296133</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Added:&#10;- all battlemech intrinsic properties">
-      <created>1467909933250</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1467909933250</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Added:&#10;- added all entities.&#10;- working on establishing the relationship between mechs, weapons, and equipment.">
-      <created>1467934419447</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1467934419447</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Added:&#10;- completed all basic entities">
-      <created>1468194494243</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1468194494243</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Added:&#10;- added cost to battlemech.&#10;- added order entity.&#10;- need to fix join column issue with order.">
-      <created>1468199318563</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1468199318563</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Added:&#10;- added cost to battlemech.&#10;- added order entity.&#10;- need to fix join column issue with order.">
-      <created>1468275326407</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1468275326407</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Added:&#10;- overrode FOSUserBundle controllers and forms.&#10;- added serialization for FOSUserBundle.&#10;- added constraints for FOSUserBundle.">
-      <created>1468279124933</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1468279124933</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Added:&#10;- overrode FOSUserBundle controllers and forms.&#10;- added serialization for FOSUserBundle.&#10;- added constraints for FOSUserBundle.">
-      <created>1468279227123</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1468279227123</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Added:&#10;- registration controller register action.&#10;- form is not binding the data.">
-      <created>1468371953548</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1468371953548</updated>
-    </task>
-    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13754000" />
+    <option name="totallyTimeSpent" value="12000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="25" width="1368" height="744" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3074018" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3074018" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32692307" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17975831" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32692307" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -524,6 +157,24 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
       <collection />
@@ -531,21 +182,6 @@
     <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added:&#10;- installed composer" />
-    <MESSAGE value="Added:&#10;- added necessary bundles.&#10;- added user class." />
-    <MESSAGE value="Added:&#10;- provided some material to the user class.&#10;- stared work on battlemechs." />
-    <MESSAGE value="Added:&#10;- all battlemech intrinsic properties" />
-    <MESSAGE value="Added:&#10;- added all entities.&#10;- working on establishing the relationship between mechs, weapons, and equipment." />
-    <MESSAGE value="Added:&#10;- completed all basic entities" />
-    <MESSAGE value="Added:&#10;- added cost to battlemech.&#10;- added order entity.&#10;- need to fix join column issue with order." />
-    <MESSAGE value="Added:&#10;- overrode FOSUserBundle controllers and forms.&#10;- added serialization for FOSUserBundle.&#10;- added constraints for FOSUserBundle." />
-    <MESSAGE value="Added:&#10;- registration controller register action.&#10;- form is not binding the data." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added:&#10;- registration controller register action.&#10;- form is not binding the data." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
