@@ -157,21 +157,6 @@ class BattleMech
     protected $armorType;
 
     /**
-     * @var string
-     * @ORM\Column(name="heatsink_type", type="string", length=10)
-     * @Assert\NotBlank(
-     *      message="A BattleMech's heatsink type cannot be blank."
-     * )
-     * @Assert\Length(
-     *      max=10,
-     *      maxMessage="A Battlemech's heatsink type must be less than {{ limit }} characters."
-     * )
-     *
-     * @JMS\Expose()
-     */
-    protected $heatSinkType;
-
-    /**
      * @var integer
      * @ORM\Column(name="cost", type="integer")
      * @Assert\NotBlank(
@@ -262,6 +247,10 @@ class BattleMech
         return $this->speed;
     }
 
+    /**
+     * This should be determined in the controller by the Mech's weight and the engine rating. DO NOT set this manually!
+     * @param $speed
+     */
     public function setSpeed($speed)
     {
         $this->speed = $speed;
@@ -274,7 +263,7 @@ class BattleMech
 
     public function setTechBase($techBase)
     {
-        $this->techBase = $techBase;
+        $this->techBase = strtoupper($techBase);
     }
 
     public function getStructureType()
@@ -284,7 +273,7 @@ class BattleMech
 
     public function setStructureType($structure)
     {
-        $this->internalStructureType = $structure;
+        $this->internalStructureType = strtoupper($structure);
     }
 
     public function getArmorType()
@@ -294,17 +283,7 @@ class BattleMech
 
     public function setArmorType($armor)
     {
-        $this->armorType = $armor;
-    }
-
-    public function getHeatSinkType()
-    {
-        return $this->heatSinkType;
-    }
-
-    public function setHeatSinkType($heatSink)
-    {
-        $this->heatSinkType = $heatSink;
+        $this->armorType = strtoupper($armor);
     }
 
     public function getCost()

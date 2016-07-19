@@ -22,17 +22,17 @@ class EngineFixture implements FixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-//        $engineFileJSON = file_get_contents("/home/andrew/public_html/FullStackDemo/src/AppBundle/DataFixtures/ORM/engines.json");
-//        if($engineFileJSON == true){
-//            $engineFileData = json_decode($engineFileJSON, true);
-//            foreach($engineFileData["engines"] as $engineString){
-//                $engine = new Engine();
-//                $engine->setTechBase($engineString["techBase"]);
-//                $engine->setEngineType($engineString["engineType"]);
-//                $engine->setEngineRating($engineString["engineRating"]);
-//                $manager->persist($engine);
-//            }
-//            $manager->flush();
-//        }
+        $engineFileJSON = file_get_contents("/home/andrew/public_html/FullStackDemo/src/AppBundle/DataFixtures/ORM/DataFiles/engines.json");
+        if($engineFileJSON == true){
+            $engineFileData = json_decode($engineFileJSON, true);
+            foreach($engineFileData["engines"] as $engineString){
+                $engine = new Engine();
+                $engine->setTechBase($engineString["techBase"]);
+                $engine->setEngineType($engineString["engineType"]);
+                $engine->setEngineRating($engineString["engineRating"]);
+                $manager->persist($engine);
+            }
+            $manager->flush();
+        }
     }
 }

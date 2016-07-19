@@ -22,7 +22,7 @@ class WeaponFixture implements FixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $weaponFileJSON = file_get_contents("/home/andrew/public_html/FullStackDemo/src/AppBundle/DataFixtures/ORM/weapons.json");
+        $weaponFileJSON = file_get_contents("/home/andrew/public_html/FullStackDemo/src/AppBundle/DataFixtures/ORM/DataFiles/weapons.json");
         if($weaponFileJSON == true){
             $weaponFileData = json_decode($weaponFileJSON, true);
             foreach($weaponFileData["weapons"] as $weaponString){

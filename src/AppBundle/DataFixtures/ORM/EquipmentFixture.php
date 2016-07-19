@@ -22,7 +22,7 @@ class EquipmentFixture implements FixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $equipmentFileJSON = file_get_contents("/home/andrew/public_html/FullStackDemo/src/AppBundle/DataFixtures/ORM/equipment.json");
+        $equipmentFileJSON = file_get_contents("/home/andrew/public_html/FullStackDemo/src/AppBundle/DataFixtures/ORM/DataFiles/equipment.json");
         if($equipmentFileJSON == true){
             $equipmentFileData = json_decode($equipmentFileJSON, true);
             foreach($equipmentFileData["equipment"] as $equipmentString){
