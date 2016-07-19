@@ -133,7 +133,7 @@ class Weapon
 
     public function setType($type)
     {
-        $this->type = $type;
+        $this->type = strtoupper($type);
     }
 
     public function getTechBase()
@@ -143,6 +143,6 @@ class Weapon
 
     public function setTechBase($techBase)
     {
-        $this->name = $techBase;
+        $this->name = strtoupper($techBase);
     }
 }

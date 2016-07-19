@@ -118,6 +118,6 @@ class Equipment
 
     public function setTechBase($techBase)
     {
-        $this->name = $techBase;
+        $this->name = strtoupper($techBase);
     }
 }

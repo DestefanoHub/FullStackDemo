@@ -1,0 +1,16 @@
+{"equipment": [
+  {"name": "Heat Sink", "tonnage": 1, "techBase": "INNER SPHERE"},
+  {"name": "Double Heat Sink", "tonnage": 1, "techBase": "INNER SPHERE"},
+  {"name": "Beagle Active Probe", "tonnage": 1.5, "techBase": "INNER SPHERE"},
+  {"name": "Guardian ECM Suite", "tonnage": 1.5, "techBase": "INNER SPHERE"},
+  {"name": "Anti-Missile System", "tonnage": 0.5, "techBase": "INNER SPHERE"},
+  {"name": "Artemis IV Fire Control System", "tonnage": 1, "techBase": "INNER SPHERE"},
+  {"name": "CASE", "tonnage": 0.5, "techBase": "INNER SPHERE"},
+  {"name": "Jump Jets", "tonnage": 0.5, "techBase": "INNER SPHERE"},
+  {"name": "Double Heat Sink", "tonnage": 1, "techBase": "CLAN"},
+  {"name": "Active Probe", "tonnage": 1, "techBase": "CLAN"},
+  {"name": "Guardian ECM Suite", "tonnage": 1, "techBase": "CLAN"},
+  {"name": "Anti-Missile System", "tonnage": 0.5, "techBase": "CLAN"},
+  {"name": "Artemis IV Fire Control System", "tonnage": 1, "techBase": "CLAN"},
+  {"name": "Jump Jets", "tonnage": 0.5, "techBase": "CLAN"}
+]}

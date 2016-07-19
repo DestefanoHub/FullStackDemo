@@ -92,7 +92,7 @@ class Engine
 
     public function setTechBase($techBase)
     {
-        $this->techBase = $techBase;
+        $this->techBase = strtoupper($techBase);
     }
 
     public function getEngineType()
@@ -102,7 +102,7 @@ class Engine
 
     public function setEngineType($engine)
     {
-        $this->engineType = $engine;
+        $this->engineType = strtoupper($engine);
     }
 
     public function getEngineRating()
