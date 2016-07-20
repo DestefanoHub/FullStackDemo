@@ -11,3 +11,7 @@ register:
 AppBundleProfile:
     prefix: /profile
     resource: "@AppBundle/Resources/config/routing/profile.yml"
+
+AppBundleBattleMechs:
+    prefix: /battlemechs
+    resource: "@AppBundle/Resources/config/routing/battlemechs.yml"

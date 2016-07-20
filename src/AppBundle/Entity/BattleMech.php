@@ -32,6 +32,7 @@ class BattleMech
      * @ORM\GeneratedValue(strategy="AUTO")
      *
      * @JMS\Expose()
+     * @JMS\Groups({"default", "mech-stub", "mech"})
      */
     protected $id;
 
@@ -49,6 +50,7 @@ class BattleMech
      * )
      *
      * @JMS\Expose()
+     * @JMS\Groups({"default", "mech-stub", "mech"})
      */
     protected $chassisName;
 
@@ -66,6 +68,7 @@ class BattleMech
      * )
      *
      * @JMS\Expose()
+     * @JMS\Groups({"default", "mech-stub", "mech"})
      */
     protected $chassisVariant;
 
@@ -83,6 +86,7 @@ class BattleMech
      * )
      *
      * @JMS\Expose()
+     * @JMS\Groups({"default", "mech-stub", "mech"})
      */
     protected $tonnage;
 
@@ -97,6 +101,7 @@ class BattleMech
      * @Assert\Valid()
      *
      * @JMS\Expose()
+     * @JMS\Groups({"default", "mech"})
      */
     protected $engine;
 
@@ -108,6 +113,7 @@ class BattleMech
      * )
      *
      * @JMS\Expose()
+     * @JMS\Groups({"default", "mech"})
      */
     protected $speed;
 
@@ -123,6 +129,7 @@ class BattleMech
      * )
      *
      * @JMS\Expose()
+     * @JMS\Groups({"default", "mech-stub", "mech"})
      */
     protected $techBase;
 
@@ -138,6 +145,7 @@ class BattleMech
      * )
      *
      * @JMS\Expose()
+     * @JMS\Groups({"default", "mech"})
      */
     protected $internalStructureType;
 
@@ -153,6 +161,7 @@ class BattleMech
      * )
      *
      * @JMS\Expose()
+     * @JMS\Groups({"default", "mech"})
      */
     protected $armorType;
 
@@ -164,14 +173,28 @@ class BattleMech
      * )
      *
      * @JMS\Expose()
+     * @JMS\Groups({"default", "mech-stub", "mech"})
      */
     protected $cost;
+
+    /**
+     * @var integer
+     * @ORM\Column(name="stock", type="integer")
+     * @Assert\NotBlank(
+     *     message="The number of a BattleMech in stock cannot be blank."
+     * )
+     *
+     * @JMS\Expose()
+     * @JMS\Groups({"default", "mech-stub", "mech"})
+     */
+    protected $stock;
 
     /**
      * @var string
      * @ORM\Column(name="image", type="string", nullable=true)
      *
      * @JMS\Expose()
+     * @JMS\Groups({"default", "mech-stub", "mech"})
      */
     protected $image;
 
@@ -294,6 +317,16 @@ class BattleMech
     public function setCost($cost)
     {
         $this->cost = $cost;
+    }
+
+    public function getStock()
+    {
+        return $this->stock;
+    }
+
+    public function setStock($stock)
+    {
+        $this->stock = $stock;
     }
 
     public function getImage()
