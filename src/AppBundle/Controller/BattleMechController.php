@@ -35,8 +35,7 @@ class BattleMechController extends FOSRestController
      * )
      * @Rest\QueryParam(name="offset", requirements="\d+", default=0, description="Offset of Mechs to display")
      * @Rest\QueryParam(name="limit", requirements="\d+", default=100, description="Limit of Mechs to display")
-     * @Rest\QueryParam(name="orderBy", requirements="[a-z,A-Z]", default="chassisName", description="Ordering attribute")
-     * @Rest\QueryParam(name="direction", requirements="[A-Z]", default="DESC", description="Ordering direction")
+     * @Rest\QueryParam(name="direction", requirements="\w+", description="Ordering direction")
      * @param ParamFetcherInterface $paramFetcher
      * @return Response
      */
@@ -50,12 +49,8 @@ class BattleMechController extends FOSRestController
 
         $offset = $paramFetcher->get('offset');
         $limit = $paramFetcher->get('limit');
-        $orderBy = $paramFetcher->get('orderBy');
-        if($orderBy !== "tonnage" || $orderBy !== "chassisName"){
-            throw new BadRequestHttpException(400);
-        }
-        $direction = $paramFetcher->get('direction');
-        if($direction !== "ASC" || $direction !== "DESC"){
+        $direction = strtoupper($paramFetcher->get('direction'));
+        if(!($direction == "DESC" || $direction == "ASC")){
             throw new BadRequestHttpException(400);
         }
         $all = 1;
@@ -63,7 +58,7 @@ class BattleMechController extends FOSRestController
             $all = 0;
         }
 
-        $mechs = $this->getDoctrine()->getRepository("AppBundle:BattleMech")->getAllBattleMechs($offset, $limit, $orderBy, $direction, $all);
+        $mechs = $this->getDoctrine()->getRepository("AppBundle:BattleMech")->getAllBattleMechs($offset, $limit, $direction, $all);
 
         $response = new Response();
         $response->headers->set('Content-Type', 'application/json');
@@ -88,9 +83,8 @@ class BattleMechController extends FOSRestController
      * )
      * @Rest\QueryParam(name="offset", requirements="\d+", default=0, description="Offset of Mechs to display")
      * @Rest\QueryParam(name="limit", requirements="\d+", default=100, description="Limit of Mechs to display")
-     * @Rest\QueryParam(name="weightClass", requirements="[A-Z]", description="Weight range of Mechs to display")
-     * @Rest\QueryParam(name="orderBy", requirements="[a-z,A-Z]", default="chassisName", description="Ordering attribute")
-     * @Rest\QueryParam(name="direction", requirements="[A-Z]", default="DESC", description="Ordering direction")
+     * @Rest\QueryParam(name="weightClass", requirements="\w+", description="Weight range of Mechs to display")
+     * @Rest\QueryParam(name="direction", requirements="\w+", default="DESC", description="Ordering direction")
      * @param ParamFetcherInterface $paramFetcher
      * @return Response
      */
@@ -104,13 +98,9 @@ class BattleMechController extends FOSRestController
 
         $offset = $paramFetcher->get('offset');
         $limit = $paramFetcher->get('limit');
-        $weightClass = $paramFetcher->get('weightClass');
-        $orderBy = $paramFetcher->get('orderBy');
-        if($orderBy !== "tonnage" || $orderBy !== "chassisName"){
-            throw new BadRequestHttpException(400);
-        }
-        $direction = $paramFetcher->get('direction');
-        if($direction !== "ASC" || $direction !== "DESC"){
+        $weightClass = strtoupper($paramFetcher->get('weightClass'));
+        $direction = strtoupper($paramFetcher->get('direction'));
+        if(!($direction == "ASC" || $direction == "DESC")){
             throw new BadRequestHttpException(400);
         }
         $all = 1;
@@ -141,7 +131,7 @@ class BattleMechController extends FOSRestController
                 throw new BadRequestHttpException(400);
         }
 
-        $mechs = $this->getDoctrine()->getRepository("AppBundle:BattleMech")->alllBattleMechsByWeightClass($offset, $limit, $orderBy, $direction, $minWeight, $maxWeight, $all);
+        $mechs = $this->getDoctrine()->getRepository("AppBundle:BattleMech")->allBattleMechsByWeightClass($offset, $limit, $direction, $minWeight, $maxWeight, $all);
 
         $response = new Response();
         $response->headers->set('Content-Type', 'application/json');
@@ -165,7 +155,9 @@ class BattleMechController extends FOSRestController
      *          401 = "Unauthorized"
      *      }
      * )
-     * @Rest\QueryParam(name="name", requirements="[a-z,A-Z]", description="String name to search on")
+     * @Rest\QueryParam(name="offset", requirements="\d+", default=0, description="Offset of Mechs to display")
+     * @Rest\QueryParam(name="limit", requirements="\d+", default=100, description="Limit of Mechs to display")
+     * @Rest\QueryParam(name="name", requirements="\w+", description="String name to search on")
      * @param ParamFetcherInterface $paramFetcher
      * @return Response
      */
@@ -177,8 +169,10 @@ class BattleMechController extends FOSRestController
             throw new UnauthorizedHttpException(401);
         }
 
+        $offset = $paramFetcher->get('offset');
+        $limit = $paramFetcher->get('limit');
         $name = $paramFetcher->get('name');
-        if($name == null || 1 == preg_match("/\s/", $name)){
+        if($name == null || 1 == preg_match("/^$/", $name)){
             throw new BadRequestHttpException(400);
         }
         $all = 1;
@@ -186,7 +180,7 @@ class BattleMechController extends FOSRestController
             $all = 0;
         }
 
-        $mechs = $this->getDoctrine()->getRepository('AppBundle:BattleMech')->battlemechsByName($name, $all);
+        $mechs = $this->getDoctrine()->getRepository('AppBundle:BattleMech')->battlemechsByName($offset, $limit, $name, $all);
 
         $response = new Response();
         $response->headers->set('Content-Type', 'application/json');

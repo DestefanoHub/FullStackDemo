@@ -2,19 +2,19 @@ all_battlemechs:
     path: /all
     defaults: { _controller: AppBundle:BattleMech:all }
     methods: [GET]
-    requirements: { offset: \d+, limit: \d+, orderBy: "[a-z,A-Z]", direction: "[A-Z]" }
+    requirements: { offset: \d+, limit: \d+, direction: \w+ }
 
 all_battlemechs_in_weight_class:
     path: /weightClass
     defaults: { _controller: AppBundle:BattleMech:byWeightClass }
     methods: [GET]
-    requirements: { offset: \d+, limit: \d+, weightClass: "[A-Z]", orderBy: "[a-z,A-Z]", direction: "[A-Z]" }
+    requirements: { offset: \d+, limit: \d+, weightClass: \w+, direction: \w+ }
 
 all_battlemechs_name_like:
     path: /nameSearch
     defaults: { _controller: AppBundle:BattleMech:byName }
     methods: [GET]
-    requirements: { name: "[a-z,A-Z]" }
+    requirements: { offset: \d+, limit: \d+, name: \w+ }
 
 get_battlemech:
     path: /{id}

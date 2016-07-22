@@ -92,8 +92,11 @@ class BattleMech
 
     /**
      * @var Engine
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Engine", cascade={"all"})
-     * @ORM\JoinColumn(name="engine_id", referencedColumnName="id")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Engine")
+     * @ORM\JoinTable(name="battlemech_engines",
+     *      joinColumns={@ORM\JoinColumn(name="battlemech_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="engine_id", referencedColumnName="id")}
+     * )
      * @Assert\Type(
      *      type="AppBundle\Entity\Engine",
      *      message="Not a valid engine."
@@ -107,7 +110,7 @@ class BattleMech
 
     /**
      * @var double
-     * @ORM\Column(name="speed", type="decimal", precision=4, scale=2)
+     * @ORM\Column(name="speed", type="decimal", precision=5, scale=2)
      * @Assert\NotBlank(
      *      message="A BattleMech's speed cannot be blank."
      * )
