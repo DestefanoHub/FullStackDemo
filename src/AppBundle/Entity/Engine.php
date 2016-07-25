@@ -31,6 +31,7 @@ class Engine
      * @ORM\GeneratedValue(strategy="AUTO")
      *
      * @JMS\Expose()
+     * @JMS\Groups({"default", "engine"})
      */
     protected $id;
 
@@ -45,6 +46,7 @@ class Engine
      *      maxMessage="An engine's technology base must be less than {{ limit }} characters."
      * )
      * @JMS\Expose()
+     * @JMS\Groups({"default", "engine"})
      */
     protected $techBase;
 
@@ -60,6 +62,7 @@ class Engine
      * )
      *
      * @JMS\Expose()
+     * @JMS\Groups({"default", "engine"})
      */
     protected $engineType;
 
@@ -77,6 +80,7 @@ class Engine
      * )
      *
      * @JMS\Expose()
+     * @JMS\Groups({"default", "engine"})
      */
     protected $engineRating;
 

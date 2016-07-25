@@ -20,7 +20,7 @@ get_battlemech:
     path: /{id}
     defaults: { _controller: AppBundle:BattleMech:get }
     methods: [GET]
-    requirements: { id: /d+ }
+    requirements: { id: \d+ }
 
 add_battlemech:
     path: /

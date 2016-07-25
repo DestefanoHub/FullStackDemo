@@ -8,7 +8,9 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\BattleMech;
 use AppBundle\Entity\User;
+use AppBundle\Form\BattleMechFormType;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\UserBundle\Model\UserInterface;
 use JMS\Serializer\SerializationContext;
@@ -18,13 +20,13 @@ use FOS\RestBundle\Request\ParamFetcherInterface;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
 class BattleMechController extends FOSRestController
 {
     /**
-     * Retrieves all BattleMechs that are currently in stock. For admins, it retrieves all BattleMechs whether they are
-     * in stock or not.
+     * Retrieves all BattleMechs.
      * @ApiDoc(
      *     resource = true,
      *     statusCodes = {
@@ -53,12 +55,8 @@ class BattleMechController extends FOSRestController
         if(!($direction == "DESC" || $direction == "ASC")){
             throw new BadRequestHttpException(400);
         }
-        $all = 1;
-        if($user->hasRole("ADMIN")){
-            $all = 0;
-        }
 
-        $mechs = $this->getDoctrine()->getRepository("AppBundle:BattleMech")->getAllBattleMechs($offset, $limit, $direction, $all);
+        $mechs = $this->getDoctrine()->getRepository("AppBundle:BattleMech")->getAllBattleMechs($offset, $limit, $direction);
 
         $response = new Response();
         $response->headers->set('Content-Type', 'application/json');
@@ -72,8 +70,7 @@ class BattleMechController extends FOSRestController
     }
 
     /**
-     * Retrieves all BattleMechs in a weight class that are currently in stock. For admins, it retrieves all BattleMechs
-     * in the weight class whether they are in stock or not.
+     * Retrieves all BattleMechs in a weight class.
      * @ApiDoc(
      *     statusCodes = {
      *          200 = "Success",
@@ -103,10 +100,6 @@ class BattleMechController extends FOSRestController
         if(!($direction == "ASC" || $direction == "DESC")){
             throw new BadRequestHttpException(400);
         }
-        $all = 1;
-        if($user->hasRole("ADMIN")){
-            $all = 0;
-        }
 
         $minWeight = null;
         $maxWeight = null;
@@ -131,7 +124,7 @@ class BattleMechController extends FOSRestController
                 throw new BadRequestHttpException(400);
         }
 
-        $mechs = $this->getDoctrine()->getRepository("AppBundle:BattleMech")->allBattleMechsByWeightClass($offset, $limit, $direction, $minWeight, $maxWeight, $all);
+        $mechs = $this->getDoctrine()->getRepository("AppBundle:BattleMech")->allBattleMechsByWeightClass($offset, $limit, $direction, $minWeight, $maxWeight);
 
         $response = new Response();
         $response->headers->set('Content-Type', 'application/json');
@@ -145,9 +138,7 @@ class BattleMechController extends FOSRestController
     }
 
     /**
-     * Retrieves all BattleMechs whose names start with the string provided and that are in stock. Fpr Admins, it
-     * retrieves all BattleMechs that match the string provided whether they are in stock or not. Partial strings are
-     * acceptable.
+     * Retrieves all BattleMechs whose names start with the string provided. Partial strings are acceptable.
      * @ApiDoc(
      *     statusCodes = {
      *          200 = "Success",
@@ -175,12 +166,8 @@ class BattleMechController extends FOSRestController
         if($name == null || 1 == preg_match("/^$/", $name)){
             throw new BadRequestHttpException(400);
         }
-        $all = 1;
-        if($user->hasRole("ADMIN")){
-            $all = 0;
-        }
 
-        $mechs = $this->getDoctrine()->getRepository('AppBundle:BattleMech')->battlemechsByName($offset, $limit, $name, $all);
+        $mechs = $this->getDoctrine()->getRepository('AppBundle:BattleMech')->battlemechsByName($offset, $limit, $name);
 
         $response = new Response();
         $response->headers->set('Content-Type', 'application/json');
@@ -204,9 +191,28 @@ class BattleMechController extends FOSRestController
         }
     }
 
-    public function getAction()
+    /**
+     * Retrieves all information about a single BattleMech as long as it is in stock
+     * @param BattleMech $mech
+     * @return Response|NotFoundHttpException
+     */
+    public function getAction(BattleMech $mech)
     {
+        /** @var User $user */
+        $user = $this->getUser();
+        if(!is_object($user) || !$user instanceof UserInterface){
+            throw new UnauthorizedHttpException(401);
+        }
 
+        $response = new Response();
+        $response->headers->set('Content-Type', 'application/json');
+        $serializer = $this->container->get('jms_serializer');
+        $serializedMech = $serializer->serialize($mech, 'json', SerializationContext::create()->setGroups(array(
+            'default', 'mech', 'engine'
+        )));
+        $response->setContent($serializedMech);
+        $response->setStatusCode(200);
+        return $response;
     }
 
     public function postAction()
@@ -224,9 +230,13 @@ class BattleMechController extends FOSRestController
 
     }
 
-    private function createBattleMechForm()
+    private function createBattleMechForm(BattleMech $mech, $method)
     {
-
+        $form = $this->createForm(BattleMechFormType::class, $mech, array(
+            'csrf_protection' => false,
+            'method' => $method
+        ));
+        return $form;
     }
 
     public function deleteAction()

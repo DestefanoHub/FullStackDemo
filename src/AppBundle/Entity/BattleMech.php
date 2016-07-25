@@ -206,6 +206,7 @@ class BattleMech
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\MountedWeapons", mappedBy="battlemech", orphanRemoval=true, cascade={"all"})
      *
      * @JMS\Expose()
+     * @JMS\Groups({"mech"})
      */
     protected $weapons;
 
@@ -214,6 +215,7 @@ class BattleMech
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\MountedEquipment", mappedBy="battlemech", orphanRemoval=true, cascade={"all"})
      *
      * @JMS\Expose()
+     * @JMS\Groups({"mech"})
      */
     protected $equipment;
 
