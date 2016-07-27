@@ -111,9 +111,7 @@ class BattleMech
     /**
      * @var double
      * @ORM\Column(name="speed", type="decimal", precision=5, scale=2)
-     * @Assert\NotBlank(
-     *      message="A BattleMech's speed cannot be blank."
-     * )
+     *
      *
      * @JMS\Expose()
      * @JMS\Groups({"default", "mech"})
@@ -230,32 +228,32 @@ class BattleMech
         return $this->id;
     }
 
-    public function getName()
+    public function getChassisName()
     {
         return $this->chassisName;
     }
 
-    public function setName($name)
+    public function setChassisName($name)
     {
         $this->chassisName = $name;
     }
 
-    public function getVariant()
+    public function getChassisVariant()
     {
         return $this->chassisVariant;
     }
 
-    public function setVariant($variant)
+    public function setChassisVariant($variant)
     {
         $this->chassisVariant = strtoupper($variant);
     }
 
-    public function getWeight()
+    public function getTonnage()
     {
         return $this->tonnage;
     }
 
-    public function setWeight($tonnage)
+    public function setTonnage($tonnage)
     {
        $this->tonnage = $tonnage;
     }
@@ -265,7 +263,7 @@ class BattleMech
         return $this->engine;
     }
 
-    public function setEngine($engine)
+    public function setEngine(Engine $engine)
     {
         $this->engine = $engine;
     }
@@ -294,12 +292,12 @@ class BattleMech
         $this->techBase = strtoupper($techBase);
     }
 
-    public function getStructureType()
+    public function getInternalStructureType()
     {
         return $this->internalStructureType;
     }
 
-    public function setStructureType($structure)
+    public function setInternalStructureType($structure)
     {
         $this->internalStructureType = strtoupper($structure);
     }

@@ -31,6 +31,7 @@ class Equipment
      * @ORM\GeneratedValue(strategy="AUTO")
      *
      * @JMS\Expose()
+     * @JMS\Groups({"default", "equipment"})
      */
     protected $id;
 
@@ -48,6 +49,7 @@ class Equipment
      * )
      *
      * @JMS\Expose()
+     * @JMS\Groups({"default", "equipment"})
      */
     protected $name;
 
@@ -63,6 +65,7 @@ class Equipment
      * )
      *
      * @JMS\Expose()
+     * @JMS\Groups({"equipment"})
      */
     protected $tonnage;
 
@@ -78,6 +81,7 @@ class Equipment
      * )
      *
      * @JMS\Expose()
+     * @JMS\Groups({"equipment"})
      */
     protected $techBase;
 

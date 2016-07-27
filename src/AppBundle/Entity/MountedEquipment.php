@@ -22,17 +22,8 @@ use JMS\Serializer\Annotation as JMS;
 class MountedEquipment
 {
     /**
-     * @var integer
-     * @ORM\Id
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     *
-     * @JMS\Expose()
-     */
-    protected $id;
-
-    /**
      * @var BattleMech
+     * @ORM\Id
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\BattleMech", inversedBy="equipment", cascade={"all"})
      * @ORM\JoinColumn(name="battlemech_id", referencedColumnName="id", nullable=false)
      */
@@ -40,6 +31,7 @@ class MountedEquipment
 
     /**
      * @var Equipment
+     * @ORM\Id
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Equipment")
      * @ORM\JoinColumn(name="equipment_id", referencedColumnName="id", nullable=false)
      */
@@ -58,15 +50,13 @@ class MountedEquipment
      */
     protected $numberEquipped;
 
-    public function __construct()
+    public function __construct($mechId, $equipmentId, $count)
     {
-
+        $this->battlemech = $mechId;
+        $this->equipment = $equipmentId;
+        $this->numberEquipped = $count;
     }
 
-    public function getId()
-    {
-        return $this->id;
-    }
 
     public function getBattleMech()
     {

@@ -23,10 +23,8 @@ class BattleMechFormType extends AbstractType
         $builder
             ->add('chassisName', TextType::class)
             ->add('chassisVariant', TextType::class)
-            ->add('tonnage', TextType::class)
-            ->add('chassisName', TextType::class)
-            ->add('engine', TextType::class)
-            ->add('chassisName', TextType::class, array(
+            ->add('tonnage', IntegerType::class)
+            ->add('engine', IntegerType::class, array(
                 'mapped' => false
             ))
             ->add('techBase', TextType::class)
@@ -35,17 +33,32 @@ class BattleMechFormType extends AbstractType
             ->add('cost', NumberType::class)
             ->add('stock', IntegerType::class)
             ->add('image', TextType::class, array(
-                'mapped' => false
+                'mapped' => false,
+                'required' => false
             ))
-            ->add('weapons', CollectionType::class, array(
+            ->add('weaponsAdd', CollectionType::class, array(
                 'entry_type' => IntegerType::class,
                 'allow_add' => true,
-                'mapped' => false
+                'mapped' => false,
+                'required' => false
             ))
-            ->add('equipment', CollectionType::class, array(
+            ->add('weaponsRemove', CollectionType::class, array(
                 'entry_type' => IntegerType::class,
                 'allow_add' => true,
-                'mapped' => false
+                'mapped' => false,
+                'required' => false
+            ))
+            ->add('equipmentAdd', CollectionType::class, array(
+                'entry_type' => IntegerType::class,
+                'allow_add' => true,
+                'mapped' => false,
+                'required' => false
+            ))
+            ->add('equipmentRemove', CollectionType::class, array(
+                'entry_type' => IntegerType::class,
+                'allow_add' => true,
+                'mapped' => false,
+                'required' => false
             ));
     }
 

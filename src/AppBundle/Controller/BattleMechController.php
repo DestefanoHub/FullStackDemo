@@ -9,6 +9,8 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\BattleMech;
+use AppBundle\Entity\MountedEquipment;
+use AppBundle\Entity\MountedWeapons;
 use AppBundle\Entity\User;
 use AppBundle\Form\BattleMechFormType;
 use FOS\RestBundle\Controller\FOSRestController;
@@ -19,6 +21,7 @@ use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Request\ParamFetcherInterface;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
@@ -192,7 +195,7 @@ class BattleMechController extends FOSRestController
     }
 
     /**
-     * Retrieves all information about a single BattleMech as long as it is in stock
+     * Retrieves all information about a single BattleMech.
      * @param BattleMech $mech
      * @return Response|NotFoundHttpException
      */
@@ -202,6 +205,9 @@ class BattleMechController extends FOSRestController
         $user = $this->getUser();
         if(!is_object($user) || !$user instanceof UserInterface){
             throw new UnauthorizedHttpException(401);
+        }
+        if(!$mech instanceof BattleMech){
+            throw new NotFoundHttpException(404);
         }
 
         $response = new Response();
@@ -215,19 +221,120 @@ class BattleMechController extends FOSRestController
         return $response;
     }
 
-    public function postAction()
+    public function postAction(Request $request)
     {
-
+        return $this->processForm($request, new BattleMech());
     }
 
-    public function putAction()
+    public function putAction(Request $request, BattleMech $mech)
     {
-
+        return $this->processForm($request, $mech);
     }
 
-    private function processForm()
+    private function processForm(Request $request, BattleMech $mech)
     {
+        $user = $this->getUser();
+        if(!is_object($user) || !$user instanceof UserInterface){
+            throw new UnauthorizedHttpException(401);
+        }
+        if(!$user->hasRole("ADMIN")){
+            throw new AccessDeniedHttpException(403);
+        }
+        if(!$mech instanceof BattleMech){
+            throw new NotFoundHttpException(404);
+        }
 
+        $statusCode = (null === $mech->getId()) ? 201 : 200;
+        $form = $this->createBattleMechForm($mech, $request->getMethod());
+        $form->handleRequest($request);
+
+        $response = new Response();
+        $response->headers->set('Content-Type', 'application/json');
+        $serializer = $this->container->get('jms_serializer');
+
+        if($form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+
+            $engineData = $form->get("engine")->getData();
+            $engine = $em->find('AppBundle\Entity\Engine', $engineData);
+            if($engine){
+                $mech->setEngine($engine);
+                $mech->setSpeed(($engine->getEngineRating() / $mech->getTonnage()) * 16.2);
+            }
+
+            $image = $form->get("image")->getData();
+
+            $em->persist($mech);
+
+            $weaponsAdd = $form->get("weaponsAdd")->getData();
+            if($weaponsAdd){
+                foreach($weaponsAdd as $key => $value){
+                    $weapon = $em->find('AppBundle\Entity\Weapon', $key);
+                    if($weapon){
+                        $mountedWeapon = new MountedWeapons($mech->getId(), $weapon->getId(), $value);
+                        $mech->addWeapon($mountedWeapon);
+                    }
+                }
+            }
+
+            $equipmentAdd = $form->get("equipmentAdd")->getData();
+            if($equipmentAdd){
+                foreach($equipmentAdd as $key => $value){
+                    $equipment = $em->find('AppBundle\Entity\Equipment', $key);
+                    if($equipment){
+                        $mountedEquipment = new MountedEquipment($mech->getId(), $equipment->getId(), $value);
+                        $mech->addEquipment($mountedEquipment);
+                    }
+                }
+            }
+
+//            if($statusCode == 200){
+//                $weaponsRemove = $form->get("weapons")->getData();
+//                if($weaponsRemove){
+//                    foreach($weaponsRemove as $key => $value){
+//                        $weapon = $em->find('AppBundle\Entity\Weapon', $key);
+//                        if($weapon){
+//                            $mountedWeapon = new MountedWeapons($mech->getId(), $weapon->getId(), $value);
+//                        }
+//                    }
+//                }
+//
+//                $equipmentAdd = $form->get("equipment")->getData();
+//                if($equipmentAdd){
+//                    foreach($equipmentAdd as $key => $value){
+//                        $equipment = $em->find('AppBundle\Entity\Equipment', $key);
+//                        if($equipment){
+//                            $mountedEquipment = new MountedEquipment($mech->getId(), $equipment->getId(), $value);
+//                        }
+//                    }
+//                }
+//            }
+
+            $em->flush();
+            $serializedMech = $serializer->serialize($mech, 'json', SerializationContext::create()->setGroups(array(
+                'default', 'battlemech', 'engine', 'weapon', 'equipment'
+            )));
+            $response->setContent($serializedMech);
+            $response->setStatusCode($statusCode);
+            return $response;
+        }
+        $formErrors = $form->getErrors(true, true);
+        $count = count($formErrors);
+        $errorArray = array();
+        for($i = 0; $i < $count; $i++){
+            if($formErrors->valid()){
+                array_push($errorArray, $formErrors->current());
+                $formErrors->next();
+            }
+        }
+        $errors = array(
+            "message" => "The form contained invalid data.",
+            "errorArray" => $errorArray
+        );
+        $serializedErrors = $serializer->serialize($errors, 'json');
+        $response->setContent($serializedErrors);
+        $response->setStatusCode(400);
+        return $response;
     }
 
     private function createBattleMechForm(BattleMech $mech, $method)

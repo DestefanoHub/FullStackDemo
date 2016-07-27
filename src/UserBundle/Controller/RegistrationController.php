@@ -85,7 +85,6 @@ class RegistrationController extends FOSRestController
             }
         }
         $errors = array(
-            "code" => 400,
             "message" => "The form contained invalid data.",
             "errorArray" => $errorArray
         );

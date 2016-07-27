@@ -31,6 +31,7 @@ class Weapon
      * @ORM\GeneratedValue(strategy="AUTO")
      *
      * @JMS\Expose()
+     * @JMS\Groups({"default", "weapon"})
      */
     protected $id;
 
@@ -48,6 +49,7 @@ class Weapon
      * )
      *
      * @JMS\Expose()
+     * @JMS\Groups({"default", "weapon"})
      */
     protected $name;
 
@@ -63,6 +65,7 @@ class Weapon
      * )
      *
      * @JMS\Expose()
+     * @JMS\Groups({"weapon"})
      */
     protected $tonnage;
 
@@ -78,6 +81,7 @@ class Weapon
      * )
      *
      * @JMS\Expose()
+     * @JMS\Groups({"weapon"})
      */
     protected $type;
 
@@ -93,6 +97,7 @@ class Weapon
      * )
      *
      * @JMS\Expose()
+     * @JMS\Groups({"weapon"})
      */
     protected $techBase;
 
